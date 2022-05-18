@@ -36,7 +36,7 @@ contract FreemoonDEXPair is IFreemoonDEXPair, FRC759 {
         guardUp = false;
     }
 
-    constructor() FRC759("Freemoon DEX", "FMN-DEX", 18, uint256(2**256-1)) {
+    constructor() FRC759("Freemoon DEX", "FMN-DEX", 18, type(uint256).max) {
         factory = msg.sender;
     }
 
