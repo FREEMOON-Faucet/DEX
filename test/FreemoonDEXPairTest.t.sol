@@ -45,10 +45,10 @@ contract FreemoonDEXPairTest is Test {
         testUser = new TestUser();
         pair = new FreemoonDEXPair();
 
-        token0.mint(address(this), 3 ether);
-        token1.mint(address(this), 3 ether);
-        token0.mint(address(testUser), 3 ether);
-        token1.mint(address(testUser), 3 ether);
+        token0.mint(address(this), 10 ether);
+        token1.mint(address(this), 10 ether);
+        token0.mint(address(testUser), 10 ether);
+        token1.mint(address(testUser), 10 ether);
 
         pair.initialize(address(token0), address(token1));
     }
@@ -64,102 +64,126 @@ contract FreemoonDEXPairTest is Test {
         pair.burn(address(this));
     }
 
+    function assertBalances(address account, uint256 expected0, uint256 expected1) public {
+        (uint256 balance0, uint256 balance1) = balances(account);
+        assertEq(balance0, expected0);
+        assertEq(balance1, expected1);
+    }
+
     function assertReserves(uint256 expected0, uint256 expected1) public {
         (uint112 reserve0, uint112 reserve1, ) = pair.getReserves();
         assertEq(uint256(reserve0), expected0);
         assertEq(uint256(reserve1), expected1);
     }
 
-    function logBalance(address account, address token) public view {
-        console.log("BALANCE:", IFRC20(token).balanceOf(account));
+    function assertLpBalance(address account, uint256 expected) public {
+        assertEq(pair.balanceOf(account), expected);
     }
 
-    function logReserves() public view {
-        (uint112 reserve0, uint112 reserve1, ) = pair.getReserves();
+    function assertLpSupply(uint256 expected) public {
+        assertEq(pair.totalSupply(), expected);
+    }
+
+    function logBalance(uint256 balance) public view {
+        console.log("BALANCE:", balance);
+    }
+
+    function logReserves(uint256 reserve0, uint256 reserve1) public view {
         console.log("RESERVES:", reserve0, reserve1);
     }
 
+    function balances(address account) public view returns (uint256 balance0, uint256 balance1) {
+        balance0 = token0.balanceOf(account);
+        balance1 = token1.balanceOf(account);
+    } 
+
     // MINT
     function testMintInitialLiquidity() public {
+        (uint256 initialBal0, uint256 initialBal1) = balances(address(this));
+
         addLiquidity(1 ether, 1 ether);
 
+        assertBalances(address(this), initialBal0 - 1 ether, initialBal1 - 1 ether);
         assertReserves(1 ether, 1 ether);
-        assertEq(pair.balanceOf(address(this)), 1 ether - 1000);
-        assertEq(pair.totalSupply(), 1 ether);
+        assertLpSupply(1 ether);
+        assertLpBalance(address(this), 1 ether - 1000);
+        assertLpBalance(address(0), 1000);
     }
 
     function testMintBalancedLiquidity() public {
-        addLiquidity(1 ether, 1 ether);
-
-        assertReserves(1 ether, 1 ether);
-        assertEq(pair.balanceOf(address(this)), 1 ether - 1000);
+        (uint256 initialBal0, uint256 initialBal1) = balances(address(this));
 
         addLiquidity(1 ether, 1 ether);
 
+        addLiquidity(1 ether, 1 ether);
+
+        assertBalances(address(this), initialBal0 - 2 ether, initialBal1 - 2 ether);
         assertReserves(2 ether, 2 ether);
-        assertEq(pair.balanceOf(address(this)), 2 ether - 1000);
-        assertEq(pair.totalSupply(), 2 ether);
+        assertLpSupply(2 ether);
+        assertLpBalance(address(this), 2 ether - 1000);
     }
 
     function testMintUnbalancedLiquidity() public {
-        addLiquidity(1 ether, 1 ether);
+        (uint256 initialBal0, uint256 initialBal1) = balances(address(this));
 
-        assertReserves(1 ether, 1 ether);
-        assertEq(pair.balanceOf(address(this)), 1 ether - 1000);
+        addLiquidity(1 ether, 1 ether);
 
         addLiquidity(2 ether, 1 ether);
 
+        assertBalances(address(this), initialBal0 - 3 ether, initialBal1 - 2 ether);
         assertReserves(3 ether, 2 ether);
-        assertEq(pair.balanceOf(address(this)), 2 ether - 1000);
-        assertEq(pair.totalSupply(), 2 ether);
+        assertLpSupply(2 ether);
+        assertLpBalance(address(this), 2 ether - 1000);
     }
 
     // BURN
     function testBurnLiquidity() public {
-        addLiquidity(1 ether, 1 ether);
+        (uint256 initialBal0, uint256 initialBal1) = balances(address(this));
 
-        assertReserves(1 ether, 1 ether);
-        assertEq(token0.balanceOf(address(pair)), 1 ether);
-        assertEq(token1.balanceOf(address(pair)), 1 ether);
+        addLiquidity(1 ether, 1 ether);
 
         removeLiquidity(1 ether - 1000);
 
+        assertBalances(address(this), initialBal0 - 1000, initialBal1 - 1000);
         assertReserves(1000, 1000);
+        assertLpSupply(1000);
+        assertLpBalance(address(this), 0);
     }
 
     function testBurnUnbalancedLiquidity() public {
+        (uint256 initialBal0, uint256 initialBal1) = balances(address(this));
         addLiquidity(1 ether, 1 ether);
 
-        assertReserves(1 ether, 1 ether);
-        assertEq(pair.balanceOf(address(this)), 1 ether - 1000);
-
         addLiquidity(2 ether, 1 ether);
-
-        assertReserves(3 ether, 2 ether);
-        assertEq(pair.balanceOf(address(this)), 2 ether - 1000);
 
         removeLiquidity(2 ether - 1000);
 
+        assertBalances(address(this), initialBal0 - 1500, initialBal1 - 1000);
         assertReserves(1500, 1000);
-        assertEq(token0.balanceOf(address(this)), 3 ether - 1500);
-        assertEq(token1.balanceOf(address(this)), 3 ether - 1000);
+        assertLpSupply(1000);
+        assertLpBalance(address(this), 0);
     }
 
     function testBurnUnbalancedLiquidityUnowned() public {
+        (uint256 initialBal0, uint256 initialBal1) = balances(address(this));
+        (uint256 tuInitialBal0, uint256 tuInitialBal1) = balances(address(testUser));
+
         testUser.addLiquidity(address(pair), address(token0), address(token1), 1 ether, 1 ether);
 
-        assertReserves(1 ether, 1 ether);
-        assertEq(pair.balanceOf(address(testUser)), 1 ether - 1000);
-
         addLiquidity(2 ether, 1 ether);
-
-        assertReserves(3 ether, 2 ether);
-        assertEq(pair.balanceOf(address(this)), 1 ether);
 
         removeLiquidity(1 ether);
 
         testUser.removeLiquidity(address(pair), 1 ether - 1000);
 
+        assertBalances(address(this), initialBal0 - 0.5 ether, initialBal1);
+        assertBalances(address(testUser), tuInitialBal0 + 0.5 ether - 1500, tuInitialBal1 - 1000);
         assertReserves(1500, 1000);
+        assertLpSupply(1000);
+        assertLpBalance(address(this), 0);
+        assertLpBalance(address(testUser), 0);
     }
+
+    // SWAP
+    function testSwap() public {}
 }
