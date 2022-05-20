@@ -3,7 +3,7 @@ pragma solidity ^0.8.13;
 
 
 interface IFreemoonDEXPair {
-    error AlreadyInitialized();
+    error Forbidden();
     error BalanceOverflow();
     error InsufficientInputAmount();
     error InsufficientLiquidity();
@@ -11,6 +11,7 @@ interface IFreemoonDEXPair {
     error InsufficientLiquidityMinted();
     error InsufficientOutputAmount();
     error InvalidK();
+    error InvalidTo();
     error TransferFailed();
 
     event Mint(address indexed sender, uint256 amount0, uint256 amount1);
