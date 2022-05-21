@@ -18,8 +18,8 @@ contract FreemoonDEXFactory is IFreemoonDEXFactory {
         _;
     }
 
-    constructor(address _feeToSetter) {
-        feeToSetter = _feeToSetter;
+    constructor(address feeToSetter_) {
+        feeToSetter = feeToSetter_;
     }
 
     function allPairsLength() external view returns (uint256) {
