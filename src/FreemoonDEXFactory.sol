@@ -6,7 +6,6 @@ import "./FreemoonDEXPair.sol";
 
 
 contract FreemoonDEXFactory is IFreemoonDEXFactory {
-
     address public feeTo;
     address public feeToSetter;
 

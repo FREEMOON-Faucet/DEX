@@ -3,66 +3,33 @@ pragma solidity ^0.8.13;
 
 import "forge-std/Test.sol";
 
-import "../src/interfaces/IFRC20.sol";
-import "../src/mocks/MockFRC759.sol";
 import "../src/FreemoonDEXFactory.sol";
 import "../src/FreemoonDEXPair.sol";
 
+import "../src/interfaces/IFRC20.sol";
+import "../src/libraries/FreemoonDEXLibrary.sol";
 
-contract TestUser {
-    function addLiquidity(
-        address pair,
-        address token0,
-        address token1,
-        uint256 amount0,
-        uint256 amount1
-    ) public
-    {
-        IFRC20(token0).transfer(pair, amount0);
-        IFRC20(token1).transfer(pair, amount1);
-        IFreemoonDEXPair(pair).mint(address(this));
-    }
-
-    function removeLiquidity(
-        address pair,
-        uint256 liquidity
-    ) public
-    {
-        IFRC20(pair).transfer(pair, liquidity);
-        IFreemoonDEXPair(pair).burn(address(this));
-    }
-
-    function swap(
-        address pair,
-        address token0,
-        address token1,
-        uint256 in0,
-        uint256 in1,
-        uint256 out0,
-        uint256 out1
-    ) public
-    {
-        IFRC20(token0).transfer(pair, in0);
-        IFRC20(token1).transfer(pair, in1);
-        IFreemoonDEXPair(pair).swap(out0, out1, address(this), new bytes(0));
-    }
-}
+import "../src/mocks/MockFRC759.sol";
+import "../src/mocks/TestUser.sol";
 
 
 contract FreemoonDEXPairTest is Test {
     MockFRC759 token0;
     MockFRC759 token1;
-    FreemoonDEXFactory factory;
-    FreemoonDEXPair pair;
+    address pairAddr;
+    IFreemoonDEXPair pair;
     TestUser testUser;
     
     function setUp() public {
-        token1 = new MockFRC759("Token A", "TKNA");
-        token0 = new MockFRC759("Token B", "TKNB");
+        MockFRC759 tokenA = new MockFRC759("Token A", "TKNA");
+        MockFRC759 tokenB = new MockFRC759("Token B", "TKNB");
+        (address token0Addr, address token1Addr) = FreemoonDEXLibrary.sortTokens(address(tokenA), address(tokenB));
+        token0 = MockFRC759(token0Addr);
+        token1 = MockFRC759(token1Addr);
         testUser = new TestUser();
-        factory = new FreemoonDEXFactory(address(this));
-        address pairAddr = factory.createPair(address(token0), address(token1));
-        pair = FreemoonDEXPair(pairAddr);
+        FreemoonDEXFactory factory = new FreemoonDEXFactory(address(this));
+        pairAddr = factory.createPair(address(token0), address(token1));
+        pair = IFreemoonDEXPair(pairAddr);
 
         token0.mint(address(this), 10 ether);
         token1.mint(address(this), 10 ether);
@@ -77,7 +44,7 @@ contract FreemoonDEXPairTest is Test {
     }
 
     function removeLiquidity(uint256 liquidity) public {
-        pair.transfer(address(pair), liquidity);
+        IFRC20(pairAddr).transfer(address(pair), liquidity);
         pair.burn(address(this));
     }
 
@@ -100,11 +67,11 @@ contract FreemoonDEXPairTest is Test {
     }
 
     function assertLpBalance(address account, uint256 expected) public {
-        assertEq(pair.balanceOf(account), expected);
+        assertEq(IFRC20(pairAddr).balanceOf(account), expected);
     }
 
     function assertLpSupply(uint256 expected) public {
-        assertEq(pair.totalSupply(), expected);
+        assertEq(IFRC20(pairAddr).totalSupply(), expected);
     }
 
     function logBalance(uint256 balance) public view {
