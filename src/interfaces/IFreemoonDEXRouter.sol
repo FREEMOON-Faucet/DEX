@@ -4,6 +4,7 @@ pragma solidity ^0.8.13;
 
 interface IFreemoonDEXRouter {
     error Expired();
+    error Forbidden();
     error ExcessiveInputAmount();
     error InsufficientAAmount();
     error InsufficientBAmount();

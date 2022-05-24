@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.13;
 
+import "time-wrapped-fusion/interfaces/IWFSN.sol";
+
 import "./interfaces/IFreemoonDEXRouter.sol";
 import "./interfaces/IFreemoonDEXFactory.sol";
 import "./interfaces/IFreemoonDEXPair.sol";
-import "./interfaces/IFRC20.sol";
-import "./interfaces/IWETH.sol";
 import "./libraries/FreemoonDEXLibrary.sol";
 
 
@@ -25,7 +25,7 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
     }
 
     receive() external payable {
-        assert(msg.sender == WETH);
+        if (msg.sender != WETH) revert Forbidden();
     }
 
     // **** ADD LIQUIDITY ****
@@ -47,6 +47,7 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
             (amountA, amountB) = (amountADesired, amountBDesired);
         } else {
             uint256 amountBOptimal = FreemoonDEXLibrary.quote(amountADesired, reserveA, reserveB);
+
             if (amountBOptimal <= amountBDesired) {
                 if (amountBOptimal < amountBMin) revert InsufficientBAmount();
                 (amountA, amountB) = (amountADesired, amountBOptimal);
@@ -83,19 +84,12 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
         uint256 amountETHMin,
         address to,
         uint256 deadline
-    ) external virtual override payable ensure(deadline) returns (uint256 amountToken, uint256 amountETH, uint liquidity) {
-        (amountToken, amountETH) = _addLiquidity(
-            token,
-            WETH,
-            amountTokenDesired,
-            msg.value,
-            amountTokenMin,
-            amountETHMin
-        );
+    ) external virtual override payable ensure(deadline) returns (uint256 amountToken, uint256 amountETH, uint256 liquidity) {
+        (amountToken, amountETH) = _addLiquidity(token, WETH, amountTokenDesired, msg.value, amountTokenMin, amountETHMin);
         address pair = FreemoonDEXLibrary.pairFor(factory, token, WETH);
         _safeTransferFrom(token, msg.sender, pair, amountToken);
-        IWETH(WETH).deposit{value: amountETH}();
-        assert(IWETH(WETH).transfer(pair, amountETH));
+        IWFSN(WETH).deposit{value: amountETH}();
+        assert(IWFSN(WETH).transfer(pair, amountETH));
         liquidity = IFreemoonDEXPair(pair).mint(to);
         if (msg.value > amountETH) _safeTransferETH(msg.sender, msg.value - amountETH);
     }
@@ -111,7 +105,7 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
         uint256 deadline
     ) public virtual override ensure(deadline) returns (uint256 amountA, uint256 amountB) {
         address pair = FreemoonDEXLibrary.pairFor(factory, tokenA, tokenB);
-        IFRC20(pair).transferFrom(msg.sender, pair, liquidity);
+        IWFSN(pair).transferFrom(msg.sender, pair, liquidity);
         (uint256 amount0, uint256 amount1) = IFreemoonDEXPair(pair).burn(to);
         (address token0, ) = FreemoonDEXLibrary.sortTokens(tokenA, tokenB);
         (amountA, amountB) = tokenA == token0 ? (amount0, amount1) : (amount1, amount0);
@@ -137,7 +131,7 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
             deadline
         );
         _safeTransfer(token, to, amountToken);
-        IWETH(WETH).withdraw(amountETH);
+        IWFSN(WETH).withdraw(amountETH);
         _safeTransferETH(to, amountETH);
     }
 
@@ -192,8 +186,8 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
         if (path[0] != WETH) revert InvalidPath();
         amounts = FreemoonDEXLibrary.getAmountsOut(factory, msg.value, path);
         if (amounts[amounts.length - 1] < amountOutMin) revert InsufficientOutputAmount();
-        IWETH(WETH).deposit{value: amounts[0]}();
-        assert(IWETH(WETH).transfer(FreemoonDEXLibrary.pairFor(factory, path[0], path[1]), amounts[0]));
+        IWFSN(WETH).deposit{value: amounts[0]}();
+        assert(IWFSN(WETH).transfer(FreemoonDEXLibrary.pairFor(factory, path[0], path[1]), amounts[0]));
         _swap(amounts, path, to);
     }
 
@@ -209,7 +203,7 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
         if (amounts[0] > amountInMax) revert ExcessiveInputAmount();
         _safeTransferFrom(path[0], msg.sender, FreemoonDEXLibrary.pairFor(factory, path[0], path[1]), amounts[0]);
         _swap(amounts, path, address(this));
-        IWETH(WETH).withdraw(amounts[amounts.length - 1]);
+        IWFSN(WETH).withdraw(amounts[amounts.length - 1]);
         _safeTransferETH(to, amounts[amounts.length - 1]);
     }
 
@@ -225,7 +219,7 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
         if (amounts[amounts.length - 1] < amountOutMin) revert InsufficientOutputAmount();
         _safeTransferFrom(path[0], msg.sender, FreemoonDEXLibrary.pairFor(factory, path[0], path[0]), amounts[0]);
         _swap(amounts, path, address(this));
-        IWETH(WETH).withdraw(amounts[amounts.length - 1]);
+        IWFSN(WETH).withdraw(amounts[amounts.length - 1]);
         _safeTransferETH(to, amounts[amounts.length - 1]);
     }
 
@@ -238,8 +232,8 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
         if (path[0] != WETH) revert InvalidPath();
         amounts = FreemoonDEXLibrary.getAmountsIn(factory, amountOut, path);
         if (amounts[0] > msg.value) revert ExcessiveInputAmount();
-        IWETH(WETH).deposit{value: amounts[0]}();
-        assert(IWETH(WETH).transfer(FreemoonDEXLibrary.pairFor(factory, path[0], path[1]), amounts[0]));
+        IWFSN(WETH).deposit{value: amounts[0]}();
+        assert(IWFSN(WETH).transfer(FreemoonDEXLibrary.pairFor(factory, path[0], path[1]), amounts[0]));
         _swap(amounts, path, to);
         if (msg.value > amounts[0]) _safeTransferETH(msg.sender, msg.value - amounts[0]);
     }
@@ -272,15 +266,7 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
     }
 
     function _safeTransferFrom(address token, address from, address to, uint256 value) private {
-        (bool success, bytes memory data) = token.call(
-            abi.encodeWithSignature(
-                "transferFrom(address,address,uint256)",
-                from,
-                to,
-                value
-            )
-        );
-        
+        (bool success, bytes memory data) = token.call(abi.encodeWithSignature("transferFrom(address,address,uint256)", from, to, value));
         if (!success || (data.length != 0 && !abi.decode(data, (bool)))) revert SafeTransferFailed();
     }
 
