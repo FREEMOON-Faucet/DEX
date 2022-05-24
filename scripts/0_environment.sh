@@ -10,3 +10,4 @@ export DEPLOYER=$DEP
 export PRIVATE_KEY=$PK
 export RPCURL=$RPCURL
 export WFSN=$WFSN
+

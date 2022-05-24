@@ -19,9 +19,9 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
         _;
     }
 
-    constructor(address factory_, address WETH_) {
+    constructor(address factory_, address weth_) {
         factory = factory_;
-        WETH = WETH_;
+        WETH = weth_;
     }
 
     receive() external payable {
