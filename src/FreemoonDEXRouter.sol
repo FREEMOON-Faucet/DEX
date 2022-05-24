@@ -3,6 +3,7 @@ pragma solidity ^0.8.13;
 
 import "time-wrapped-fusion/interfaces/IWFSN.sol";
 
+import "./interfaces/IFRC20.sol";
 import "./interfaces/IFreemoonDEXRouter.sol";
 import "./interfaces/IFreemoonDEXFactory.sol";
 import "./interfaces/IFreemoonDEXPair.sol";
@@ -69,7 +70,7 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
         uint256 amountBMin,
         address to,
         uint256 deadline
-    ) external ensure(deadline) returns (uint256 amountA, uint256 amountB, uint256 liquidity) {
+    ) external override ensure(deadline) returns (uint256 amountA, uint256 amountB, uint256 liquidity) {
         (amountA, amountB) = _addLiquidity(tokenA, tokenB, amountADesired, amountBDesired, amountAMin, amountBMin);
         address pair = FreemoonDEXLibrary.pairFor(factory, tokenA, tokenB);
         _safeTransferFrom(tokenA, msg.sender, pair, amountA);
@@ -84,12 +85,12 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
         uint256 amountETHMin,
         address to,
         uint256 deadline
-    ) external virtual override payable ensure(deadline) returns (uint256 amountToken, uint256 amountETH, uint256 liquidity) {
+    ) external override payable ensure(deadline) returns (uint256 amountToken, uint256 amountETH, uint256 liquidity) {
         (amountToken, amountETH) = _addLiquidity(token, WETH, amountTokenDesired, msg.value, amountTokenMin, amountETHMin);
         address pair = FreemoonDEXLibrary.pairFor(factory, token, WETH);
         _safeTransferFrom(token, msg.sender, pair, amountToken);
         IWFSN(WETH).deposit{value: amountETH}();
-        assert(IWFSN(WETH).transfer(pair, amountETH));
+        assert(IFRC20(WETH).transfer(pair, amountETH));
         liquidity = IFreemoonDEXPair(pair).mint(to);
         if (msg.value > amountETH) _safeTransferETH(msg.sender, msg.value - amountETH);
     }
@@ -103,9 +104,9 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
         uint256 amountBMin,
         address to,
         uint256 deadline
-    ) public virtual override ensure(deadline) returns (uint256 amountA, uint256 amountB) {
+    ) public override ensure(deadline) returns (uint256 amountA, uint256 amountB) {
         address pair = FreemoonDEXLibrary.pairFor(factory, tokenA, tokenB);
-        IWFSN(pair).transferFrom(msg.sender, pair, liquidity);
+        IFRC20(pair).transferFrom(msg.sender, pair, liquidity);
         (uint256 amount0, uint256 amount1) = IFreemoonDEXPair(pair).burn(to);
         (address token0, ) = FreemoonDEXLibrary.sortTokens(tokenA, tokenB);
         (amountA, amountB) = tokenA == token0 ? (amount0, amount1) : (amount1, amount0);
@@ -120,16 +121,8 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
         uint256 amountETHMin,
         address to,
         uint256 deadline
-    ) public virtual override ensure(deadline) returns (uint256 amountToken, uint256 amountETH) {
-        (amountToken, amountETH) = removeLiquidity(
-            token,
-            WETH,
-            liquidity,
-            amountTokenMin,
-            amountETHMin,
-            address(this),
-            deadline
-        );
+    ) external override ensure(deadline) returns (uint256 amountToken, uint256 amountETH) {
+        (amountToken, amountETH) = removeLiquidity(token, WETH, liquidity, amountTokenMin, amountETHMin, address(this), deadline);
         _safeTransfer(token, to, amountToken);
         IWFSN(WETH).withdraw(amountETH);
         _safeTransferETH(to, amountETH);
@@ -140,7 +133,7 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
         uint256[] memory amounts,
         address[] memory path,
         address to_
-    ) private {
+    ) internal {
         for (uint256 i; i < path.length - 1; i++) {
             (address input, address output) = (path[i], path[i + 1]);
             (address token0, ) = FreemoonDEXLibrary.sortTokens(input, output);
@@ -160,7 +153,7 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
     ) external override ensure(deadline) returns (uint256[] memory amounts) {
         amounts = FreemoonDEXLibrary.getAmountsOut(factory, amountIn, path);
         if (amounts[amounts.length - 1] < amountOutMin) revert InsufficientOutputAmount();
-        _safeTransferFrom(path[0], msg.sender, FreemoonDEXLibrary.pairFor(address(factory), path[0], path[1]), amounts[0]);
+        _safeTransferFrom(path[0], msg.sender, FreemoonDEXLibrary.pairFor(factory, path[0], path[1]), amounts[0]);
         _swap(amounts, path, to);
     }
 
@@ -187,7 +180,7 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
         amounts = FreemoonDEXLibrary.getAmountsOut(factory, msg.value, path);
         if (amounts[amounts.length - 1] < amountOutMin) revert InsufficientOutputAmount();
         IWFSN(WETH).deposit{value: amounts[0]}();
-        assert(IWFSN(WETH).transfer(FreemoonDEXLibrary.pairFor(factory, path[0], path[1]), amounts[0]));
+        assert(IFRC20(WETH).transfer(FreemoonDEXLibrary.pairFor(factory, path[0], path[1]), amounts[0]));
         _swap(amounts, path, to);
     }
 
@@ -217,7 +210,7 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
         if (path[path.length - 1] != WETH) revert InvalidPath();
         amounts = FreemoonDEXLibrary.getAmountsOut(factory, amountIn, path);
         if (amounts[amounts.length - 1] < amountOutMin) revert InsufficientOutputAmount();
-        _safeTransferFrom(path[0], msg.sender, FreemoonDEXLibrary.pairFor(factory, path[0], path[0]), amounts[0]);
+        _safeTransferFrom(path[0], msg.sender, FreemoonDEXLibrary.pairFor(factory, path[0], path[1]), amounts[0]);
         _swap(amounts, path, address(this));
         IWFSN(WETH).withdraw(amounts[amounts.length - 1]);
         _safeTransferETH(to, amounts[amounts.length - 1]);
@@ -233,7 +226,7 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
         amounts = FreemoonDEXLibrary.getAmountsIn(factory, amountOut, path);
         if (amounts[0] > msg.value) revert ExcessiveInputAmount();
         IWFSN(WETH).deposit{value: amounts[0]}();
-        assert(IWFSN(WETH).transfer(FreemoonDEXLibrary.pairFor(factory, path[0], path[1]), amounts[0]));
+        assert(IFRC20(WETH).transfer(FreemoonDEXLibrary.pairFor(factory, path[0], path[1]), amounts[0]));
         _swap(amounts, path, to);
         if (msg.value > amounts[0]) _safeTransferETH(msg.sender, msg.value - amounts[0]);
     }
@@ -248,7 +241,7 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
     }
 
     function getAmountIn(uint256 amountOut, uint256 reserveIn, uint256 reserveOut) public pure override returns (uint256 amountIn) {
-        return FreemoonDEXLibrary.getAmountOut(amountOut, reserveIn, reserveOut);
+        return FreemoonDEXLibrary.getAmountIn(amountOut, reserveIn, reserveOut);
     }
 
     function getAmountsOut(uint256 amountIn, address[] memory path) public view override returns (uint256[] memory amounts) {
