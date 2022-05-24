@@ -7,3 +7,6 @@
 [submodule "lib/solmate"]
 	path = lib/solmate
 	url = https://github.com/Rari-Capital/solmate
+[submodule "lib/time-wrapped-fusion"]
+	path = lib/time-wrapped-fusion
+	url = https://github.com/paddyc1/time-wrapped-fusion
