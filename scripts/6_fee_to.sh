@@ -1,10 +1,11 @@
 #! /bin/bash
 
-forge create \
+cast send \
+$FACTORY \
+"setFeeTo(address)()" \
+$ADDRESS_USER \
 --legacy \
 --gas-price 3gwei \
-src/FreemoonDEXFactory.sol:FreemoonDEXFactory \
 --rpc-url $RPCURL \
 --private-key $PRIVATE_KEY \
---constructor-args $DEPLOYER \
 

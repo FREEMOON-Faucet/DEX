@@ -2,6 +2,6 @@
 src = 'src'
 out = 'out'
 libs = ['lib']
-libraries = ['src/libraries/FreemoonDEXLibrary.sol:FreemoonDEXLibrary:0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0']
+libraries = ['src/libraries/FreemoonDEXLibrary.sol:FreemoonDEXLibrary:0xdc67f613453ce6a111f348aa23c873678cc6a713']
 
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config
