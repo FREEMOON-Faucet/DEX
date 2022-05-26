@@ -28,7 +28,7 @@ library FreemoonDEXLibrary {
                             hex"ff",
                             factory,
                             keccak256(abi.encodePacked(token0, token1)),
-                            hex"f3e2ca0f918efd9c92a556021c52ddc60c5e32f103640b4b60c26e4a312fa085"
+                            hex"afceff057c97c1cf2a7b209e97030f080faa7693f47743312b98231d6d57561a"
                         )
                     )
                 )
@@ -51,7 +51,7 @@ library FreemoonDEXLibrary {
     function getAmountOut(uint256 amountIn, uint256 reserveIn, uint256 reserveOut) internal pure returns (uint256 amountOut) {
         if (amountIn == 0) revert InsufficientAmount();
         if (reserveIn == 0 || reserveOut == 0) revert InsufficientLiquidity();
-        uint256 amountInWithFee = amountIn * 997;
+        uint256 amountInWithFee = amountIn * 998;
         uint256 numerator = amountInWithFee * reserveOut;
         uint256 denominator = (reserveIn * 1000) + amountInWithFee;
         amountOut = numerator / denominator;
@@ -61,7 +61,7 @@ library FreemoonDEXLibrary {
         if (amountOut == 0) revert InsufficientAmount();
         if (reserveIn == 0 || reserveOut == 0) revert InsufficientLiquidity();
         uint256 numerator = reserveIn * amountOut * 1000;
-        uint256 denominator = (reserveOut - amountOut) * 997;
+        uint256 denominator = (reserveOut - amountOut) * 998;
         amountIn = (numerator / denominator) + 1;
     }
 

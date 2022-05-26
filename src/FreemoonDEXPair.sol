@@ -138,8 +138,8 @@ contract FreemoonDEXPair is IFreemoonDEXPair, FRC759 {
         if (amount0In == 0 && amount1In == 0) revert InsufficientInputAmount();
 
         {
-            uint256 balance0Adjusted = (balance0 * 1000) - (amount0In * 3);
-            uint256 balance1Adjusted = (balance1 * 1000) - (amount1In * 3);
+            uint256 balance0Adjusted = (balance0 * 1000) - (amount0In * 2);
+            uint256 balance1Adjusted = (balance1 * 1000) - (amount1In * 2);
 
             if (balance0Adjusted * balance1Adjusted < uint256(_reserve0) * uint256(_reserve1) * (1000**2)) revert InvalidK();
         }
@@ -196,7 +196,7 @@ contract FreemoonDEXPair is IFreemoonDEXPair, FRC759 {
                 uint256 rootKLast = Math.sqrt(_kLast);
                 if (rootK > rootKLast) {
                     uint256 numerator = totalSupply * (rootK - rootKLast);
-                    uint256 denominator = (rootK * 5) + rootKLast;
+                    uint256 denominator = (rootK * 20) + rootKLast;
                     uint256 liquidity = numerator / denominator;
                     if (liquidity > 0) _mint(feeTo, liquidity);
                 }
