@@ -16,3 +16,4 @@ contract MockFRC759 is FRC759 {
         _mint(to, amount);
     }
 }
+

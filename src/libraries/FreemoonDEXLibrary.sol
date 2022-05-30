@@ -28,7 +28,7 @@ library FreemoonDEXLibrary {
                             hex"ff",
                             factory,
                             keccak256(abi.encodePacked(token0, token1)),
-                            hex"afceff057c97c1cf2a7b209e97030f080faa7693f47743312b98231d6d57561a"
+                            hex"9e590268541bfa4f2d4b8bb23fd9c38ce9e3381037de632e996628170af499d9"
                         )
                     )
                 )
@@ -36,7 +36,7 @@ library FreemoonDEXLibrary {
         );
     }
 
-    function getReserves(address factory, address tokenA, address tokenB) public view returns (uint256 reserveA, uint256 reserveB) {
+    function getReserves(address factory, address tokenA, address tokenB) internal view returns (uint256 reserveA, uint256 reserveB) {
         (address token0, ) = sortTokens(tokenA, tokenB);
         (uint256 reserve0, uint256 reserve1, ) = IFreemoonDEXPair(pairFor(factory, tokenA, tokenB)).getReserves();
         (reserveA, reserveB) = tokenA == token0 ? (reserve0, reserve1) : (reserve1, reserve0);
