@@ -28,7 +28,7 @@ library FreemoonDEXLibrary {
                             hex"ff",
                             factory,
                             keccak256(abi.encodePacked(token0, token1)),
-                            hex"9e590268541bfa4f2d4b8bb23fd9c38ce9e3381037de632e996628170af499d9"
+                            hex"28e659acedb90ad9fae38c7e04c01763cd180fbece446267b56a3b20d5ef6421"
                         )
                     )
                 )

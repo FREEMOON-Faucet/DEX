@@ -9,6 +9,7 @@ contract MockFRC759 is FRC759 {
 
     constructor(string memory name, string memory symbol) FRC759(name, symbol, 18, type(uint256).max) {
       deployer = msg.sender;
+      _mint(msg.sender, 100000000 ether);
     }
 
     function mint(address to, uint256 amount) public {
