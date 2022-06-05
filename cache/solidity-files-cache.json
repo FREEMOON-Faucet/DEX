@@ -854,8 +854,8 @@
       }
     },
     "/home/paddy/Code/FreemoonFaucet/dex/src/libraries/FreemoonDEXLibrary.sol": {
-      "lastModificationDate": 1653909802824,
-      "contentHash": "9a281269b34689e91b38bf0684265019",
+      "lastModificationDate": 1654007049659,
+      "contentHash": "457df17c532bc618681369ce62529174",
       "sourceName": "src/libraries/FreemoonDEXLibrary.sol",
       "solcConfig": {
         "settings": {
