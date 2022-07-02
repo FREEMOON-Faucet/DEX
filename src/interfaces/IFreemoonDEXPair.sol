@@ -32,6 +32,8 @@ interface IFreemoonDEXPair {
     function swap(uint256 amount0Out, uint256 amount1Out, address to, bytes calldata data) external;
     function skim(address to) external;
     function sync() external;
+    
+    function burnSlice(address account, uint256 amount, uint256 start, uint256 end) external;
 
     function initialize(address, address) external;
 }

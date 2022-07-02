@@ -165,6 +165,11 @@ contract FreemoonDEXPair is IFreemoonDEXPair, FRC759 {
         return (reserve0, reserve1, blockTimestampLast);
     }
 
+    function burnSlice(address account, uint256 amount, uint256 start, uint256 end) external {
+        if (account != msg.sender) revert Forbidden();
+        _burnSlice(account, amount, start, end);
+    }
+
     // PRIVATE
     function _update(uint256 balance0, uint256 balance1, uint112 reserve0_, uint112 reserve1_) private {
         if (balance0 > type(uint112).max || balance1 > type(uint112).max) revert BalanceOverflow();

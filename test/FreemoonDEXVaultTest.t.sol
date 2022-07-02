@@ -5,20 +5,25 @@ import "forge-std/Test.sol";
 import "freemoon-frc759/interfaces/IFRC759.sol";
 
 import "../src/FreemoonDEXFactory.sol";
-import "../src/FreemoonDEXPair.sol";
+import "../src/FreemoonDEXVault.sol";
 
-import "../src/interfaces/IFRC20.sol";
 import "../src/interfaces/IFreemoonDEXPair.sol";
+import "../src/interfaces/IFreemoonDEXFactory.sol";
 import "../src/libraries/FreemoonDEXLibrary.sol";
 
 import "../src/mocks/MockFRC759.sol";
 
 
-contract FreemoonDEXFactoryTest is Test {
+contract FreemoonDEXVaultTest is Test {
     MockFRC759 token0;
     MockFRC759 token1;
     IFreemoonDEXFactory factory;
     IFreemoonDEXPair pair;
+    IFreemoonDEXVault vault;
+
+    uint256 termEnd = 1672531200;
+    uint256 min;
+    uint256 max;
 
     function setUp() public {
         MockFRC759 tokenA = new MockFRC759("Token A", "TKNA");
@@ -27,34 +32,31 @@ contract FreemoonDEXFactoryTest is Test {
         token0 = MockFRC759(token0Addr);
         token1 = MockFRC759(token1Addr);
         factory = new FreemoonDEXFactory(address(this));
+
         address pairAddr = factory.createPair(address(token0), address(token1));
         pair = IFreemoonDEXPair(pairAddr);
+
+        vault = new FreemoonDEXVault(address(factory));
+        min = vault.MIN_TIME();
+        max = vault.MAX_TIME();
 
         token0.mint(address(this), 10 ether);
         token1.mint(address(this), 10 ether);
     }
 
-    function testAllPairsLength() public {
-        uint256 allPairsLength = factory.allPairsLength();
- 
-        assertEq(allPairsLength, 1);
-    }
+    function testBurnLiquiditySlice() public {
+        token0.transfer(address(pair), 1 ether);
+        token1.transfer(address(pair), 1 ether);
 
-    function testGetPair() public {
-        address pairAddr01 = factory.getPair(address(token0), address(token1));
-        address pairAddr10 = factory.getPair(address(token1), address(token0));
-       
-        assertEq(address(pair), pairAddr01);
-        assertEq(pairAddr01, pairAddr10);
-    }
+        pair.mint(address(this));
+        IFRC20(address(pair)).approve(address(vault), 1 ether - 1000);
 
-    function testCreatePair() public {
-        MockFRC759 tokenC = new MockFRC759("Token C", "TKNC");
-        MockFRC759 tokenD = new MockFRC759("Token D", "TKND");
-        address createPair = factory.createPair(address(tokenC), address(tokenD));
-        address createPairRef = FreemoonDEXLibrary.pairFor(address(factory), address(tokenC), address(tokenD));
+        uint256 pairFullBalanceBefore = IFRC20(address(pair)).balanceOf(address(this));
 
-        assertEq(createPair, createPairRef);
+        vault.burnLiquiditySlice(address(token0), address(token1), termEnd, 1 ether - 1000);
+
+        uint256 pairFullBalanceAfter = IFRC20(address(pair)).balanceOf(address(this));
+        uint256 pairTimeBalanceAfter = IFRC759(address(pair)).timeBalanceOf(address(this), termEnd, max);
     }
 }
 
