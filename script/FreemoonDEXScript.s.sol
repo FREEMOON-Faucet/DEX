@@ -16,7 +16,7 @@ contract FreemoonDEXScript is Script {
         WFSN wfsn = new WFSN();
         FreemoonDEXFactory factory = new FreemoonDEXFactory(msg.sender);
         FreemoonDEXRouter router = new FreemoonDEXRouter(address(factory), address(wfsn));
-        FreemoonDEXVault vault = new FreemoonDEXVault(address(factory));
+        FreemoonDEXVault vault = new FreemoonDEXVault(address(factory), address(wfsn));
 
         vm.stopBroadcast();
     }

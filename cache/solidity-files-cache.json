@@ -582,8 +582,8 @@
       }
     },
     "script/FreemoonDEXScript.s.sol": {
-      "lastModificationDate": 1656870226368,
-      "contentHash": "5bb1961f175b6db311780b296d4d8d31",
+      "lastModificationDate": 1656885830702,
+      "contentHash": "23486eee6b595ef42870642e06fbf1d0",
       "sourceName": "script/FreemoonDEXScript.s.sol",
       "solcConfig": {
         "settings": {
@@ -794,8 +794,8 @@
       }
     },
     "src/FreemoonDEXVault.sol": {
-      "lastModificationDate": 1656878739651,
-      "contentHash": "e5caf99fae99a9818eca5369785eaee1",
+      "lastModificationDate": 1656887689460,
+      "contentHash": "18437f5507d0eb680305ee355ce88590",
       "sourceName": "src/FreemoonDEXVault.sol",
       "solcConfig": {
         "settings": {
@@ -1027,8 +1027,8 @@
       }
     },
     "src/interfaces/IFreemoonDEXVault.sol": {
-      "lastModificationDate": 1656846890730,
-      "contentHash": "f5f5cfe5808129a313d51eea1bce9b33",
+      "lastModificationDate": 1656887745667,
+      "contentHash": "c09ea2ea719d3f332d03cb0dfb66aae1",
       "sourceName": "src/interfaces/IFreemoonDEXVault.sol",
       "solcConfig": {
         "settings": {
@@ -1456,8 +1456,8 @@
       }
     },
     "test/FreemoonDEXVaultTest.t.sol": {
-      "lastModificationDate": 1656846851382,
-      "contentHash": "6ddda5badef4d46a3f53a719a37ff74f",
+      "lastModificationDate": 1656887830910,
+      "contentHash": "578fc6fd5765a91877adea8cceb6e1d2",
       "sourceName": "test/FreemoonDEXVaultTest.t.sol",
       "solcConfig": {
         "settings": {
@@ -1498,6 +1498,8 @@
         "lib/freemoon-frc759/src/interfaces/ISlice.sol",
         "lib/freemoon-frc759/src/libraries/SafeMath.sol",
         "lib/freemoon-frc759/src/utils/Context.sol",
+        "lib/time-wrapped-fusion/src/WFSN.sol",
+        "lib/time-wrapped-fusion/src/interfaces/IWFSN.sol",
         "src/FreemoonDEXFactory.sol",
         "src/FreemoonDEXPair.sol",
         "src/FreemoonDEXVault.sol",

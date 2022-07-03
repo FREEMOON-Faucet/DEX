@@ -9,13 +9,14 @@ import "./interfaces/IFreemoonDEXPair.sol";
 
 
 contract FreemoonDEXVault is IFreemoonDEXVault {
-    mapping(bytes32 => uint256) private _liquiditySliceBurned;
-    mapping(bytes32 => mapping(address => uint256)) private _burnedBy;
+    mapping(bytes32 => uint256) private _idLiquiditySliceBurned;
+    mapping(bytes32 => mapping(address => uint256)) private _idBurnedBy;
 
     uint256 public constant MIN_TIME = 0;
     uint256 public constant MAX_TIME = 18446744073709551615;
 
     address public factory;
+    address public wfsn;
 
     uint256 private unlocked = 1;
 
@@ -26,11 +27,37 @@ contract FreemoonDEXVault is IFreemoonDEXVault {
         unlocked = 1;
     }
 
-    constructor(address factory_) {
+    constructor(address factory_, address wfsn_) {
         factory = factory_;
+        wfsn = wfsn_;
     }
 
-    function burnLiquiditySlice(address tokenA, address tokenB, uint256 termEnd, uint256 amount) public lock {
+    function burnLiquiditySliceETH(address token, uint256 amount, uint256 termEnd) external lock {
+        _burnLiquiditySlice(token, wfsn, amount, termEnd);
+    }
+
+    function burnLiquiditySlice(address tokenA, address tokenB, uint256 amount, uint256 termEnd) external lock {
+        _burnLiquiditySlice(tokenA, tokenB, amount, termEnd);
+    }
+
+    function liquiditySliceAmountBurnedETH(address token, uint256 termEnd) external view returns (uint256) {
+        return _liquiditySliceAmountBurned(token, wfsn, termEnd);
+    }
+
+    function liquiditySliceAmountBurned(address tokenA, address tokenB, uint256 termEnd) external view returns (uint256) {
+        return _liquiditySliceAmountBurned(tokenA, tokenB, termEnd);
+    }
+
+    function burnedByETH(address token, uint256 termEnd, address account) external view returns (uint256) {
+        return _burnedBy(token, wfsn, termEnd, account);
+    }
+
+    function burnedBy(address tokenA, address tokenB, uint256 termEnd, address account) external view returns (uint256) {
+        return _burnedBy(tokenA, tokenB, termEnd, account);
+    }
+
+    // PRIVATE
+    function _burnLiquiditySlice(address tokenA, address tokenB, uint256 amount, uint256 termEnd) private {
         address pair = IFreemoonDEXFactory(factory).getPair(tokenA, tokenB);
         if (pair == address(0)) revert ZeroAddress();
 
@@ -40,34 +67,33 @@ contract FreemoonDEXVault is IFreemoonDEXVault {
         if (termEnd < min || termEnd > max) revert InvalidTermEnd();
 
         bytes32 liquiditySliceId = _getLiquiditySliceId(tokenA, tokenB, termEnd);
-        _liquiditySliceBurned[liquiditySliceId] += amount;
-        _burnedBy[liquiditySliceId][msg.sender] += amount;
+        _idLiquiditySliceBurned[liquiditySliceId] += amount;
+        _idBurnedBy[liquiditySliceId][msg.sender] += amount;
 
         IFRC759(pair).transferFrom(msg.sender, address(this), amount);
         IFRC759(pair).sliceByTime(amount, termEnd);
         IFreemoonDEXPair(pair).burnSlice(address(this), amount, min, termEnd);
         IFRC759(pair).timeSliceTransfer(msg.sender, amount, termEnd, max);
 
-        emit LiquiditySliceBurned(msg.sender, pair, termEnd, amount);
+        emit LiquiditySliceBurned(msg.sender, pair, amount, termEnd);
     }
 
-    function liquiditySliceAmountBurned(address tokenA, address tokenB, uint256 termEnd) public view returns (uint256) {
+    function _liquiditySliceAmountBurned(address tokenA, address tokenB, uint256 termEnd) private view returns (uint256) {
         address pair = IFreemoonDEXFactory(factory).getPair(tokenA, tokenB);
         if (pair == address(0)) return 0;
 
         bytes32 liquiditySliceId = _getLiquiditySliceId(tokenA, tokenB, termEnd);
-        return _liquiditySliceBurned[liquiditySliceId];
+        return _idLiquiditySliceBurned[liquiditySliceId];
     }
 
-    function burnedBy(address tokenA, address tokenB, uint256 termEnd, address account) public view returns (uint256) {
+    function _burnedBy(address tokenA, address tokenB, uint256 termEnd, address account) private view returns (uint256) {
         address pair = IFreemoonDEXFactory(factory).getPair(tokenA, tokenB);
         if (pair == address(0)) return 0;
 
         bytes32 liquiditySliceId = _getLiquiditySliceId(tokenA, tokenB, termEnd);
-        return _burnedBy[liquiditySliceId][account];
-    }    
+        return _idBurnedBy[liquiditySliceId][account];
+    }
 
-    // PRIVATE
     function _sortTokens(address tokenA, address tokenB) private pure returns (address token0, address token1) {
         (token0, token1) = tokenA < tokenB ? (tokenA, tokenB) : (tokenB, tokenA);
     }
