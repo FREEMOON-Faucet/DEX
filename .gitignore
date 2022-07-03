@@ -1,6 +1,6 @@
 cache/
 out/
-.env
+broadcast/
 
-scripts/6_local_deploy.sh
+.env
 

@@ -57,6 +57,16 @@ contract FreemoonDEXVaultTest is Test {
 
         uint256 pairFullBalanceAfter = IFRC20(address(pair)).balanceOf(address(this));
         uint256 pairTimeBalanceAfter = IFRC759(address(pair)).timeBalanceOf(address(this), termEnd, max);
+
+        assertEq(pairFullBalanceBefore, 1 ether - 1000);
+        assertEq(pairFullBalanceAfter, 0);
+        assertEq(pairTimeBalanceAfter, 1 ether - 1000);
+
+        uint256 burnedByAfter = vault.burnedBy(address(token0), address(token1), termEnd, address(this));
+        uint256 liquiditySliceAmountBurned = vault.liquiditySliceAmountBurned(address(token0), address(token1), termEnd);
+
+        assertEq(burnedByAfter, 1 ether - 1000);
+        assertEq(liquiditySliceAmountBurned, 1 ether - 1000);
     }
 }
 

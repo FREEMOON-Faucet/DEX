@@ -2,14 +2,16 @@
   "_format": "ethers-rs-sol-cache-3",
   "paths": {
     "artifacts": "out",
+    "build_infos": "out/build-info",
     "sources": "src",
     "tests": "test",
+    "scripts": "script",
     "libraries": [
       "lib"
     ]
   },
   "files": {
-    "/home/paddy/Code/FreemoonFaucet/dex/lib/forge-std/lib/ds-test/src/test.sol": {
+    "lib/forge-std/lib/ds-test/src/test.sol": {
       "lastModificationDate": 1652906227053,
       "contentHash": "962996f0e05d5218857a538a62d7c47e",
       "sourceName": "lib/forge-std/lib/ds-test/src/test.sol",
@@ -35,7 +37,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [],
@@ -46,7 +49,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/lib/forge-std/src/Script.sol": {
+    "lib/forge-std/src/Script.sol": {
       "lastModificationDate": 1656697888813,
       "contentHash": "a24c6682dfdd459618422202d7b97fec",
       "sourceName": "lib/forge-std/src/Script.sol",
@@ -72,7 +75,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [
@@ -87,7 +91,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/lib/forge-std/src/Test.sol": {
+    "lib/forge-std/src/Test.sol": {
       "lastModificationDate": 1656697888813,
       "contentHash": "1a62a754b8afb18c5cf88e481f70bd3d",
       "sourceName": "lib/forge-std/src/Test.sol",
@@ -113,7 +117,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [
@@ -139,7 +144,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/lib/forge-std/src/Vm.sol": {
+    "lib/forge-std/src/Vm.sol": {
       "lastModificationDate": 1656697888813,
       "contentHash": "498032edf2491104b61524a4665b0613",
       "sourceName": "lib/forge-std/src/Vm.sol",
@@ -165,7 +170,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [],
@@ -176,7 +182,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/lib/forge-std/src/console.sol": {
+    "lib/forge-std/src/console.sol": {
       "lastModificationDate": 1652699133064,
       "contentHash": "100b8a33b917da1147740d7ab8b0ded3",
       "sourceName": "lib/forge-std/src/console.sol",
@@ -202,7 +208,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [],
@@ -213,7 +220,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/lib/forge-std/src/console2.sol": {
+    "lib/forge-std/src/console2.sol": {
       "lastModificationDate": 1652699133064,
       "contentHash": "5df91f8e93efbfcccf68973dc1b74a70",
       "sourceName": "lib/forge-std/src/console2.sol",
@@ -239,7 +246,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [],
@@ -250,7 +258,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/lib/freemoon-frc759/src/FRC759.sol": {
+    "lib/freemoon-frc759/src/FRC759.sol": {
       "lastModificationDate": 1653942047552,
       "contentHash": "796e425070ad39076c3d0c3a2163c0ee",
       "sourceName": "lib/freemoon-frc759/src/FRC759.sol",
@@ -276,7 +284,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [
@@ -293,7 +302,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/lib/freemoon-frc759/src/Slice.sol": {
+    "lib/freemoon-frc759/src/Slice.sol": {
       "lastModificationDate": 1653407392066,
       "contentHash": "8ee096648210f934839aa2241c038000",
       "sourceName": "lib/freemoon-frc759/src/Slice.sol",
@@ -319,7 +328,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [
@@ -335,9 +345,9 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/lib/freemoon-frc759/src/interfaces/IFRC759.sol": {
-      "lastModificationDate": 1656697930780,
-      "contentHash": "648d9b2fbbb23208975e1b7c6f259c30",
+    "lib/freemoon-frc759/src/interfaces/IFRC759.sol": {
+      "lastModificationDate": 1656789315050,
+      "contentHash": "ef6a21324844ff10d65d4f3d7cff0af7",
       "sourceName": "lib/freemoon-frc759/src/interfaces/IFRC759.sol",
       "solcConfig": {
         "settings": {
@@ -361,7 +371,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [],
@@ -372,7 +383,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/lib/freemoon-frc759/src/interfaces/ISlice.sol": {
+    "lib/freemoon-frc759/src/interfaces/ISlice.sol": {
       "lastModificationDate": 1653407392066,
       "contentHash": "8cae462e9705e2d11ba83ceb7d9c751d",
       "sourceName": "lib/freemoon-frc759/src/interfaces/ISlice.sol",
@@ -398,7 +409,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [],
@@ -409,7 +421,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/lib/freemoon-frc759/src/libraries/SafeMath.sol": {
+    "lib/freemoon-frc759/src/libraries/SafeMath.sol": {
       "lastModificationDate": 1653407392066,
       "contentHash": "3ff9087045ab898a0e86d6a4417e9344",
       "sourceName": "lib/freemoon-frc759/src/libraries/SafeMath.sol",
@@ -435,7 +447,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [],
@@ -446,7 +459,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/lib/freemoon-frc759/src/utils/Context.sol": {
+    "lib/freemoon-frc759/src/utils/Context.sol": {
       "lastModificationDate": 1653407392066,
       "contentHash": "9a34af897ef23b231bea20e9028704a3",
       "sourceName": "lib/freemoon-frc759/src/utils/Context.sol",
@@ -472,7 +485,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [],
@@ -483,7 +497,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/lib/time-wrapped-fusion/src/WFSN.sol": {
+    "lib/time-wrapped-fusion/src/WFSN.sol": {
       "lastModificationDate": 1653384306601,
       "contentHash": "639e85a51fb89ffa247d599286b0b53b",
       "sourceName": "lib/time-wrapped-fusion/src/WFSN.sol",
@@ -509,7 +523,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [
@@ -528,7 +543,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/lib/time-wrapped-fusion/src/interfaces/IWFSN.sol": {
+    "lib/time-wrapped-fusion/src/interfaces/IWFSN.sol": {
       "lastModificationDate": 1653384306601,
       "contentHash": "33daa520e8a97bde5101f38f1f98c4ca",
       "sourceName": "lib/time-wrapped-fusion/src/interfaces/IWFSN.sol",
@@ -554,7 +569,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [],
@@ -565,7 +581,71 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/src/FreemoonDEXFactory.sol": {
+    "script/FreemoonDEXScript.s.sol": {
+      "lastModificationDate": 1656870226368,
+      "contentHash": "5bb1961f175b6db311780b296d4d8d31",
+      "sourceName": "script/FreemoonDEXScript.s.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/src/Script.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src/console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/freemoon-frc759/src/FRC759.sol",
+        "lib/freemoon-frc759/src/Slice.sol",
+        "lib/freemoon-frc759/src/interfaces/IFRC759.sol",
+        "lib/freemoon-frc759/src/interfaces/ISlice.sol",
+        "lib/freemoon-frc759/src/libraries/SafeMath.sol",
+        "lib/freemoon-frc759/src/utils/Context.sol",
+        "lib/time-wrapped-fusion/src/WFSN.sol",
+        "lib/time-wrapped-fusion/src/interfaces/IWFSN.sol",
+        "src/FreemoonDEXFactory.sol",
+        "src/FreemoonDEXPair.sol",
+        "src/FreemoonDEXRouter.sol",
+        "src/FreemoonDEXVault.sol",
+        "src/interfaces/IFRC20.sol",
+        "src/interfaces/IFreemoonDEXCallee.sol",
+        "src/interfaces/IFreemoonDEXFactory.sol",
+        "src/interfaces/IFreemoonDEXPair.sol",
+        "src/interfaces/IFreemoonDEXRouter.sol",
+        "src/interfaces/IFreemoonDEXVault.sol",
+        "src/libraries/FreemoonDEXLibrary.sol",
+        "src/libraries/Math.sol",
+        "src/libraries/UQ112x112.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "FreemoonDEXScript": {
+          "0.8.13+commit.abaa5c0e.Linux.gcc": "FreemoonDEXScript.s.sol/FreemoonDEXScript.json"
+        }
+      }
+    },
+    "src/FreemoonDEXFactory.sol": {
       "lastModificationDate": 1653227817121,
       "contentHash": "7fca00114609fa077ccf6b8f525ed40d",
       "sourceName": "src/FreemoonDEXFactory.sol",
@@ -591,7 +671,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [
@@ -616,7 +697,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/src/FreemoonDEXPair.sol": {
+    "src/FreemoonDEXPair.sol": {
       "lastModificationDate": 1656787218012,
       "contentHash": "9d465d8bf02b49b7491aa10b1c03fa4b",
       "sourceName": "src/FreemoonDEXPair.sol",
@@ -642,7 +723,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [
@@ -666,7 +748,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/src/FreemoonDEXRouter.sol": {
+    "src/FreemoonDEXRouter.sol": {
       "lastModificationDate": 1653415502708,
       "contentHash": "3e5a2aa4835c6225c5ce1371170fb44e",
       "sourceName": "src/FreemoonDEXRouter.sol",
@@ -692,7 +774,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [
@@ -710,9 +793,9 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/src/FreemoonDEXVault.sol": {
-      "lastModificationDate": 1656787434365,
-      "contentHash": "739ac071b05a58df2dd3a89af58702e0",
+    "src/FreemoonDEXVault.sol": {
+      "lastModificationDate": 1656878739651,
+      "contentHash": "e5caf99fae99a9818eca5369785eaee1",
       "sourceName": "src/FreemoonDEXVault.sol",
       "solcConfig": {
         "settings": {
@@ -736,7 +819,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [
@@ -752,7 +836,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/src/interfaces/IFRC20.sol": {
+    "src/interfaces/IFRC20.sol": {
       "lastModificationDate": 1653415331531,
       "contentHash": "a2ea3f3d5ae08fd9750005601d74871d",
       "sourceName": "src/interfaces/IFRC20.sol",
@@ -778,7 +862,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [],
@@ -789,7 +874,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/src/interfaces/IFreemoonDEXCallee.sol": {
+    "src/interfaces/IFreemoonDEXCallee.sol": {
       "lastModificationDate": 1652789806187,
       "contentHash": "f06ad6e93319c68c6b6820be6c20f422",
       "sourceName": "src/interfaces/IFreemoonDEXCallee.sol",
@@ -815,7 +900,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [],
@@ -826,7 +912,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/src/interfaces/IFreemoonDEXFactory.sol": {
+    "src/interfaces/IFreemoonDEXFactory.sol": {
       "lastModificationDate": 1653415354722,
       "contentHash": "bcba6769696c51844e6edd153c8fd5c4",
       "sourceName": "src/interfaces/IFreemoonDEXFactory.sol",
@@ -852,7 +938,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [],
@@ -863,7 +950,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/src/interfaces/IFreemoonDEXPair.sol": {
+    "src/interfaces/IFreemoonDEXPair.sol": {
       "lastModificationDate": 1656787365410,
       "contentHash": "48e3749f875036b6025dd7f089c6262d",
       "sourceName": "src/interfaces/IFreemoonDEXPair.sol",
@@ -889,7 +976,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [],
@@ -900,7 +988,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/src/interfaces/IFreemoonDEXRouter.sol": {
+    "src/interfaces/IFreemoonDEXRouter.sol": {
       "lastModificationDate": 1653384749496,
       "contentHash": "50672639cf7296636a7e54c008bcf400",
       "sourceName": "src/interfaces/IFreemoonDEXRouter.sol",
@@ -926,7 +1014,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [],
@@ -937,9 +1026,9 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/src/interfaces/IFreemoonDEXVault.sol": {
-      "lastModificationDate": 1656782816693,
-      "contentHash": "34f4c4f842793d2a10cf7ed3904790e9",
+    "src/interfaces/IFreemoonDEXVault.sol": {
+      "lastModificationDate": 1656846890730,
+      "contentHash": "f5f5cfe5808129a313d51eea1bce9b33",
       "sourceName": "src/interfaces/IFreemoonDEXVault.sol",
       "solcConfig": {
         "settings": {
@@ -963,7 +1052,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [],
@@ -974,9 +1064,9 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/src/libraries/FreemoonDEXLibrary.sol": {
-      "lastModificationDate": 1656787734004,
-      "contentHash": "151caa13cc58790520b8c86c798eb521",
+    "src/libraries/FreemoonDEXLibrary.sol": {
+      "lastModificationDate": 1656878837473,
+      "contentHash": "2c959de4a43ca8105c8bb651d74e0d83",
       "sourceName": "src/libraries/FreemoonDEXLibrary.sol",
       "solcConfig": {
         "settings": {
@@ -1000,7 +1090,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [
@@ -1014,7 +1105,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/src/libraries/Math.sol": {
+    "src/libraries/Math.sol": {
       "lastModificationDate": 1652795616801,
       "contentHash": "3ade0405a6f45f5e4301264cb9471a64",
       "sourceName": "src/libraries/Math.sol",
@@ -1040,7 +1131,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [],
@@ -1051,7 +1143,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/src/libraries/UQ112x112.sol": {
+    "src/libraries/UQ112x112.sol": {
       "lastModificationDate": 1652714747082,
       "contentHash": "248241fb40ae9691a0d3e1a8bcbb108c",
       "sourceName": "src/libraries/UQ112x112.sol",
@@ -1077,7 +1169,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [],
@@ -1088,7 +1181,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/src/mocks/MockFRC759.sol": {
+    "src/mocks/MockFRC759.sol": {
       "lastModificationDate": 1656780616253,
       "contentHash": "4df903103589662a0284db5c4bcdda92",
       "sourceName": "src/mocks/MockFRC759.sol",
@@ -1114,7 +1207,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [
@@ -1132,7 +1226,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/src/mocks/TestUser.sol": {
+    "src/mocks/TestUser.sol": {
       "lastModificationDate": 1653165480697,
       "contentHash": "14502f7aa5fdc42f16318b19f88df100",
       "sourceName": "src/mocks/TestUser.sol",
@@ -1158,7 +1252,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [
@@ -1172,7 +1267,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/test/FreemoonDEXFactoryTest.t.sol": {
+    "test/FreemoonDEXFactoryTest.t.sol": {
       "lastModificationDate": 1656777768184,
       "contentHash": "beea89af0dda08bab7b5dae8e7315f93",
       "sourceName": "test/FreemoonDEXFactoryTest.t.sol",
@@ -1198,7 +1293,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [
@@ -1232,7 +1328,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/test/FreemoonDEXPairTest.t.sol": {
+    "test/FreemoonDEXPairTest.t.sol": {
       "lastModificationDate": 1653169914756,
       "contentHash": "792e4bb8d8b17b6ba8f5782f05329940",
       "sourceName": "test/FreemoonDEXPairTest.t.sol",
@@ -1258,7 +1354,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [
@@ -1293,7 +1390,7 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/test/FreemoonDEXRouterTest.t.sol": {
+    "test/FreemoonDEXRouterTest.t.sol": {
       "lastModificationDate": 1653906664139,
       "contentHash": "c15820c761b26e40556a4219bf4cc684",
       "sourceName": "test/FreemoonDEXRouterTest.t.sol",
@@ -1319,7 +1416,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [
@@ -1357,9 +1455,9 @@
         }
       }
     },
-    "/home/paddy/Code/FreemoonFaucet/dex/test/FreemoonDEXVaultTest.t.sol": {
-      "lastModificationDate": 1656788209740,
-      "contentHash": "1ce53e0d62420a3f171ef3c73596b1ac",
+    "test/FreemoonDEXVaultTest.t.sol": {
+      "lastModificationDate": 1656846851382,
+      "contentHash": "6ddda5badef4d46a3f53a719a37ff74f",
       "sourceName": "test/FreemoonDEXVaultTest.t.sol",
       "solcConfig": {
         "settings": {
@@ -1383,7 +1481,8 @@
               ]
             }
           },
-          "evmVersion": "london"
+          "evmVersion": "london",
+          "libraries": {}
         }
       },
       "imports": [
