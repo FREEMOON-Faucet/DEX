@@ -157,8 +157,7 @@ contract FreemoonDEXPair is IFreemoonDEXPair, FRC759 {
     }
 
     function sync() external lock {
-        (uint112 _reserve0, uint112 _reserve1, ) = getReserves();
-        _update(IFRC20(token0).balanceOf(address(this)), IFRC20(token1).balanceOf(address(this)), _reserve0, _reserve1);
+        _update(IFRC20(token0).balanceOf(address(this)), IFRC20(token1).balanceOf(address(this)), reserve0, reserve1);
     }
 
     function getReserves() public view returns (uint112, uint112, uint32) {

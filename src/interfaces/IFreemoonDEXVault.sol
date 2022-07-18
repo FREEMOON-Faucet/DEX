@@ -23,4 +23,3 @@ interface IFreemoonDEXVault {
     function burnLiquiditySliceETH(address token, uint256 amount, uint256 termEnd) external;
     function burnLiquiditySlice(address tokenA, address tokenB, uint256 amount, uint256 termEnd) external;
 }
-

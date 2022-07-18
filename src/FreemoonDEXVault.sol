@@ -103,4 +103,3 @@ contract FreemoonDEXVault is IFreemoonDEXVault {
         return bytes32(keccak256(abi.encodePacked(token0, token1, termEnd)));
     }
 }
-

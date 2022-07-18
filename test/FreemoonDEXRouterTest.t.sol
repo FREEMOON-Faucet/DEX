@@ -15,7 +15,7 @@ import "../src/interfaces/IFRC20.sol";
 import "../src/interfaces/IFreemoonDEXPair.sol";
 import "../src/libraries/FreemoonDEXLibrary.sol";
 
-import "../src/mocks/MockFRC759.sol";
+import "../src/MockFRC759.sol";
 
 
 contract FreemoonDEXRouterTest is Test {

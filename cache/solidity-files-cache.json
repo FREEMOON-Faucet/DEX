@@ -582,8 +582,8 @@
       }
     },
     "script/FreemoonDEXScript.s.sol": {
-      "lastModificationDate": 1656885830702,
-      "contentHash": "23486eee6b595ef42870642e06fbf1d0",
+      "lastModificationDate": 1658080161792,
+      "contentHash": "5dd963c84b7947ad55ce099a42c71ea5",
       "sourceName": "script/FreemoonDEXScript.s.sol",
       "solcConfig": {
         "settings": {
@@ -645,9 +645,59 @@
         }
       }
     },
+    "script/TokenDeployScript.s.sol": {
+      "lastModificationDate": 1658080161792,
+      "contentHash": "56bb0cfdc87d92544e139711e3b9f249",
+      "sourceName": "script/TokenDeployScript.s.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/src/Script.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src/console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/freemoon-frc759/src/FRC759.sol",
+        "lib/freemoon-frc759/src/Slice.sol",
+        "lib/freemoon-frc759/src/interfaces/IFRC759.sol",
+        "lib/freemoon-frc759/src/interfaces/ISlice.sol",
+        "lib/freemoon-frc759/src/libraries/SafeMath.sol",
+        "lib/freemoon-frc759/src/utils/Context.sol",
+        "src/MockFRC759.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "FreemoonDEXScript": {
+          "0.8.13+commit.abaa5c0e.Linux.gcc": "TokenDeployScript.s.sol/FreemoonDEXScript.json"
+        }
+      }
+    },
     "src/FreemoonDEXFactory.sol": {
-      "lastModificationDate": 1653227817121,
-      "contentHash": "7fca00114609fa077ccf6b8f525ed40d",
+      "lastModificationDate": 1658080161792,
+      "contentHash": "ef9ebdc11b00fea7c35e0f601450829e",
       "sourceName": "src/FreemoonDEXFactory.sol",
       "solcConfig": {
         "settings": {
@@ -698,8 +748,8 @@
       }
     },
     "src/FreemoonDEXPair.sol": {
-      "lastModificationDate": 1656787218012,
-      "contentHash": "9d465d8bf02b49b7491aa10b1c03fa4b",
+      "lastModificationDate": 1658080161792,
+      "contentHash": "30fd286fda5f91d481d451001daa69db",
       "sourceName": "src/FreemoonDEXPair.sol",
       "solcConfig": {
         "settings": {
@@ -749,8 +799,8 @@
       }
     },
     "src/FreemoonDEXRouter.sol": {
-      "lastModificationDate": 1653415502708,
-      "contentHash": "3e5a2aa4835c6225c5ce1371170fb44e",
+      "lastModificationDate": 1658080161792,
+      "contentHash": "48f8ea45ffea3671530d319401e26b99",
       "sourceName": "src/FreemoonDEXRouter.sol",
       "solcConfig": {
         "settings": {
@@ -794,8 +844,8 @@
       }
     },
     "src/FreemoonDEXVault.sol": {
-      "lastModificationDate": 1656887689460,
-      "contentHash": "18437f5507d0eb680305ee355ce88590",
+      "lastModificationDate": 1658136577891,
+      "contentHash": "2c6eb52c699a5c37e3db52dfe4b47838",
       "sourceName": "src/FreemoonDEXVault.sol",
       "solcConfig": {
         "settings": {
@@ -836,355 +886,10 @@
         }
       }
     },
-    "src/interfaces/IFRC20.sol": {
-      "lastModificationDate": 1653415331531,
-      "contentHash": "a2ea3f3d5ae08fd9750005601d74871d",
-      "sourceName": "src/interfaces/IFRC20.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": "^0.8.13",
-      "artifacts": {
-        "IFRC20": {
-          "0.8.13+commit.abaa5c0e.Linux.gcc": "IFRC20.sol/IFRC20.json"
-        }
-      }
-    },
-    "src/interfaces/IFreemoonDEXCallee.sol": {
-      "lastModificationDate": 1652789806187,
-      "contentHash": "f06ad6e93319c68c6b6820be6c20f422",
-      "sourceName": "src/interfaces/IFreemoonDEXCallee.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": "^0.8.13",
-      "artifacts": {
-        "IFreemoonDEXCallee": {
-          "0.8.13+commit.abaa5c0e.Linux.gcc": "IFreemoonDEXCallee.sol/IFreemoonDEXCallee.json"
-        }
-      }
-    },
-    "src/interfaces/IFreemoonDEXFactory.sol": {
-      "lastModificationDate": 1653415354722,
-      "contentHash": "bcba6769696c51844e6edd153c8fd5c4",
-      "sourceName": "src/interfaces/IFreemoonDEXFactory.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": "^0.8.13",
-      "artifacts": {
-        "IFreemoonDEXFactory": {
-          "0.8.13+commit.abaa5c0e.Linux.gcc": "IFreemoonDEXFactory.sol/IFreemoonDEXFactory.json"
-        }
-      }
-    },
-    "src/interfaces/IFreemoonDEXPair.sol": {
-      "lastModificationDate": 1656787365410,
-      "contentHash": "48e3749f875036b6025dd7f089c6262d",
-      "sourceName": "src/interfaces/IFreemoonDEXPair.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": "^0.8.13",
-      "artifacts": {
-        "IFreemoonDEXPair": {
-          "0.8.13+commit.abaa5c0e.Linux.gcc": "IFreemoonDEXPair.sol/IFreemoonDEXPair.json"
-        }
-      }
-    },
-    "src/interfaces/IFreemoonDEXRouter.sol": {
-      "lastModificationDate": 1653384749496,
-      "contentHash": "50672639cf7296636a7e54c008bcf400",
-      "sourceName": "src/interfaces/IFreemoonDEXRouter.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": "^0.8.13",
-      "artifacts": {
-        "IFreemoonDEXRouter": {
-          "0.8.13+commit.abaa5c0e.Linux.gcc": "IFreemoonDEXRouter.sol/IFreemoonDEXRouter.json"
-        }
-      }
-    },
-    "src/interfaces/IFreemoonDEXVault.sol": {
-      "lastModificationDate": 1656887745667,
-      "contentHash": "c09ea2ea719d3f332d03cb0dfb66aae1",
-      "sourceName": "src/interfaces/IFreemoonDEXVault.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": "^0.8.13",
-      "artifacts": {
-        "IFreemoonDEXVault": {
-          "0.8.13+commit.abaa5c0e.Linux.gcc": "IFreemoonDEXVault.sol/IFreemoonDEXVault.json"
-        }
-      }
-    },
-    "src/libraries/FreemoonDEXLibrary.sol": {
-      "lastModificationDate": 1656878837473,
-      "contentHash": "2c959de4a43ca8105c8bb651d74e0d83",
-      "sourceName": "src/libraries/FreemoonDEXLibrary.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [
-        "src/interfaces/IFreemoonDEXFactory.sol",
-        "src/interfaces/IFreemoonDEXPair.sol"
-      ],
-      "versionRequirement": "^0.8.13",
-      "artifacts": {
-        "FreemoonDEXLibrary": {
-          "0.8.13+commit.abaa5c0e.Linux.gcc": "FreemoonDEXLibrary.sol/FreemoonDEXLibrary.json"
-        }
-      }
-    },
-    "src/libraries/Math.sol": {
-      "lastModificationDate": 1652795616801,
-      "contentHash": "3ade0405a6f45f5e4301264cb9471a64",
-      "sourceName": "src/libraries/Math.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": "^0.8.13",
-      "artifacts": {
-        "Math": {
-          "0.8.13+commit.abaa5c0e.Linux.gcc": "Math.sol/Math.json"
-        }
-      }
-    },
-    "src/libraries/UQ112x112.sol": {
-      "lastModificationDate": 1652714747082,
-      "contentHash": "248241fb40ae9691a0d3e1a8bcbb108c",
-      "sourceName": "src/libraries/UQ112x112.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": "^0.8.13",
-      "artifacts": {
-        "UQ112x112": {
-          "0.8.13+commit.abaa5c0e.Linux.gcc": "UQ112x112.sol/UQ112x112.json"
-        }
-      }
-    },
-    "src/mocks/MockFRC759.sol": {
-      "lastModificationDate": 1656780616253,
-      "contentHash": "4df903103589662a0284db5c4bcdda92",
-      "sourceName": "src/mocks/MockFRC759.sol",
+    "src/MockFRC759.sol": {
+      "lastModificationDate": 1658136700561,
+      "contentHash": "bef6598fce9b9b351b84e56241fdc316",
+      "sourceName": "src/MockFRC759.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -1226,10 +931,10 @@
         }
       }
     },
-    "src/mocks/TestUser.sol": {
-      "lastModificationDate": 1653165480697,
-      "contentHash": "14502f7aa5fdc42f16318b19f88df100",
-      "sourceName": "src/mocks/TestUser.sol",
+    "src/TestUser.sol": {
+      "lastModificationDate": 1658136712461,
+      "contentHash": "2f75665dda7efbbe2fb21bf17d1686c9",
+      "sourceName": "src/TestUser.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -1267,9 +972,354 @@
         }
       }
     },
+    "src/interfaces/IFRC20.sol": {
+      "lastModificationDate": 1658080184499,
+      "contentHash": "dd176c4b61402442d57cfcc318fa9827",
+      "sourceName": "src/interfaces/IFRC20.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "IFRC20": {
+          "0.8.13+commit.abaa5c0e.Linux.gcc": "IFRC20.sol/IFRC20.json"
+        }
+      }
+    },
+    "src/interfaces/IFreemoonDEXCallee.sol": {
+      "lastModificationDate": 1658080193843,
+      "contentHash": "e36bde85cfba29b56da2e0886a89db10",
+      "sourceName": "src/interfaces/IFreemoonDEXCallee.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "IFreemoonDEXCallee": {
+          "0.8.13+commit.abaa5c0e.Linux.gcc": "IFreemoonDEXCallee.sol/IFreemoonDEXCallee.json"
+        }
+      }
+    },
+    "src/interfaces/IFreemoonDEXFactory.sol": {
+      "lastModificationDate": 1658080206507,
+      "contentHash": "f39064c6a8e9ec8cc85e1e4b354ae539",
+      "sourceName": "src/interfaces/IFreemoonDEXFactory.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "IFreemoonDEXFactory": {
+          "0.8.13+commit.abaa5c0e.Linux.gcc": "IFreemoonDEXFactory.sol/IFreemoonDEXFactory.json"
+        }
+      }
+    },
+    "src/interfaces/IFreemoonDEXPair.sol": {
+      "lastModificationDate": 1658080232815,
+      "contentHash": "37c73e49c98afc8d86030859d52d574f",
+      "sourceName": "src/interfaces/IFreemoonDEXPair.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "IFreemoonDEXPair": {
+          "0.8.13+commit.abaa5c0e.Linux.gcc": "IFreemoonDEXPair.sol/IFreemoonDEXPair.json"
+        }
+      }
+    },
+    "src/interfaces/IFreemoonDEXRouter.sol": {
+      "lastModificationDate": 1658080279994,
+      "contentHash": "67bf4da7c58c702e3fa8e172fb394bf3",
+      "sourceName": "src/interfaces/IFreemoonDEXRouter.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "IFreemoonDEXRouter": {
+          "0.8.13+commit.abaa5c0e.Linux.gcc": "IFreemoonDEXRouter.sol/IFreemoonDEXRouter.json"
+        }
+      }
+    },
+    "src/interfaces/IFreemoonDEXVault.sol": {
+      "lastModificationDate": 1658080299029,
+      "contentHash": "894e45c01a71d4b37d00e93c08277072",
+      "sourceName": "src/interfaces/IFreemoonDEXVault.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "IFreemoonDEXVault": {
+          "0.8.13+commit.abaa5c0e.Linux.gcc": "IFreemoonDEXVault.sol/IFreemoonDEXVault.json"
+        }
+      }
+    },
+    "src/libraries/FreemoonDEXLibrary.sol": {
+      "lastModificationDate": 1658080350033,
+      "contentHash": "1b4431db737d1be69852dfee6aaa6c1f",
+      "sourceName": "src/libraries/FreemoonDEXLibrary.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "src/interfaces/IFreemoonDEXFactory.sol",
+        "src/interfaces/IFreemoonDEXPair.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "FreemoonDEXLibrary": {
+          "0.8.13+commit.abaa5c0e.Linux.gcc": "FreemoonDEXLibrary.sol/FreemoonDEXLibrary.json"
+        }
+      }
+    },
+    "src/libraries/Math.sol": {
+      "lastModificationDate": 1658136261199,
+      "contentHash": "ee1bd7138bdb07b92cac0cf5df7981a2",
+      "sourceName": "src/libraries/Math.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "Math": {
+          "0.8.13+commit.abaa5c0e.Linux.gcc": "Math.sol/Math.json"
+        }
+      }
+    },
+    "src/libraries/UQ112x112.sol": {
+      "lastModificationDate": 1658136323386,
+      "contentHash": "5faffc1d50d7483faef2d67114d26b6f",
+      "sourceName": "src/libraries/UQ112x112.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "UQ112x112": {
+          "0.8.13+commit.abaa5c0e.Linux.gcc": "UQ112x112.sol/UQ112x112.json"
+        }
+      }
+    },
     "test/FreemoonDEXFactoryTest.t.sol": {
-      "lastModificationDate": 1656777768184,
-      "contentHash": "beea89af0dda08bab7b5dae8e7315f93",
+      "lastModificationDate": 1657639156509,
+      "contentHash": "870ccfa1a6032a1a7893e7e9e4a963a4",
       "sourceName": "test/FreemoonDEXFactoryTest.t.sol",
       "solcConfig": {
         "settings": {
@@ -1312,14 +1362,14 @@
         "lib/freemoon-frc759/src/utils/Context.sol",
         "src/FreemoonDEXFactory.sol",
         "src/FreemoonDEXPair.sol",
+        "src/MockFRC759.sol",
         "src/interfaces/IFRC20.sol",
         "src/interfaces/IFreemoonDEXCallee.sol",
         "src/interfaces/IFreemoonDEXFactory.sol",
         "src/interfaces/IFreemoonDEXPair.sol",
         "src/libraries/FreemoonDEXLibrary.sol",
         "src/libraries/Math.sol",
-        "src/libraries/UQ112x112.sol",
-        "src/mocks/MockFRC759.sol"
+        "src/libraries/UQ112x112.sol"
       ],
       "versionRequirement": "^0.8.13",
       "artifacts": {
@@ -1329,8 +1379,8 @@
       }
     },
     "test/FreemoonDEXPairTest.t.sol": {
-      "lastModificationDate": 1653169914756,
-      "contentHash": "792e4bb8d8b17b6ba8f5782f05329940",
+      "lastModificationDate": 1657639191436,
+      "contentHash": "0d5b91befad447b87d683c1b9f894abd",
       "sourceName": "test/FreemoonDEXPairTest.t.sol",
       "solcConfig": {
         "settings": {
@@ -1373,15 +1423,15 @@
         "lib/freemoon-frc759/src/utils/Context.sol",
         "src/FreemoonDEXFactory.sol",
         "src/FreemoonDEXPair.sol",
+        "src/MockFRC759.sol",
+        "src/TestUser.sol",
         "src/interfaces/IFRC20.sol",
         "src/interfaces/IFreemoonDEXCallee.sol",
         "src/interfaces/IFreemoonDEXFactory.sol",
         "src/interfaces/IFreemoonDEXPair.sol",
         "src/libraries/FreemoonDEXLibrary.sol",
         "src/libraries/Math.sol",
-        "src/libraries/UQ112x112.sol",
-        "src/mocks/MockFRC759.sol",
-        "src/mocks/TestUser.sol"
+        "src/libraries/UQ112x112.sol"
       ],
       "versionRequirement": "^0.8.13",
       "artifacts": {
@@ -1391,8 +1441,8 @@
       }
     },
     "test/FreemoonDEXRouterTest.t.sol": {
-      "lastModificationDate": 1653906664139,
-      "contentHash": "c15820c761b26e40556a4219bf4cc684",
+      "lastModificationDate": 1657639169820,
+      "contentHash": "985e6a7fe70d22aec25ef08657c92785",
       "sourceName": "test/FreemoonDEXRouterTest.t.sol",
       "solcConfig": {
         "settings": {
@@ -1438,6 +1488,7 @@
         "src/FreemoonDEXFactory.sol",
         "src/FreemoonDEXPair.sol",
         "src/FreemoonDEXRouter.sol",
+        "src/MockFRC759.sol",
         "src/interfaces/IFRC20.sol",
         "src/interfaces/IFreemoonDEXCallee.sol",
         "src/interfaces/IFreemoonDEXFactory.sol",
@@ -1445,8 +1496,7 @@
         "src/interfaces/IFreemoonDEXRouter.sol",
         "src/libraries/FreemoonDEXLibrary.sol",
         "src/libraries/Math.sol",
-        "src/libraries/UQ112x112.sol",
-        "src/mocks/MockFRC759.sol"
+        "src/libraries/UQ112x112.sol"
       ],
       "versionRequirement": "^0.8.13",
       "artifacts": {
@@ -1456,8 +1506,8 @@
       }
     },
     "test/FreemoonDEXVaultTest.t.sol": {
-      "lastModificationDate": 1656887830910,
-      "contentHash": "578fc6fd5765a91877adea8cceb6e1d2",
+      "lastModificationDate": 1657639178816,
+      "contentHash": "5d5a2277eb1180a8236d3cdf8f840778",
       "sourceName": "test/FreemoonDEXVaultTest.t.sol",
       "solcConfig": {
         "settings": {
@@ -1503,6 +1553,7 @@
         "src/FreemoonDEXFactory.sol",
         "src/FreemoonDEXPair.sol",
         "src/FreemoonDEXVault.sol",
+        "src/MockFRC759.sol",
         "src/interfaces/IFRC20.sol",
         "src/interfaces/IFreemoonDEXCallee.sol",
         "src/interfaces/IFreemoonDEXFactory.sol",
@@ -1510,8 +1561,7 @@
         "src/interfaces/IFreemoonDEXVault.sol",
         "src/libraries/FreemoonDEXLibrary.sol",
         "src/libraries/Math.sol",
-        "src/libraries/UQ112x112.sol",
-        "src/mocks/MockFRC759.sol"
+        "src/libraries/UQ112x112.sol"
       ],
       "versionRequirement": "^0.8.13",
       "artifacts": {

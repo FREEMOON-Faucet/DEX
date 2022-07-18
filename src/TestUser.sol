@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.13;
 
-import "../interfaces/IFreemoonDEXPair.sol";
-import "../interfaces/IFRC20.sol";
+import "./interfaces/IFreemoonDEXPair.sol";
+import "./interfaces/IFRC20.sol";
 
 
 contract TestUser {

@@ -13,7 +13,7 @@ import "../src/interfaces/IFreemoonDEXPair.sol";
 import "../src/interfaces/IFreemoonDEXFactory.sol";
 import "../src/libraries/FreemoonDEXLibrary.sol";
 
-import "../src/mocks/MockFRC759.sol";
+import "../src/MockFRC759.sol";
 
 
 contract FreemoonDEXVaultTest is Test {

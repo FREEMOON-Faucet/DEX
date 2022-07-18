@@ -49,11 +49,11 @@ contract FreemoonDEXFactory is IFreemoonDEXFactory {
         emit PairCreated(token0, token1, pair, allPairs.length);
     }
 
-    function setFeeTo(address feeTo_) external {
+    function setFeeTo(address feeTo_) external forbidden {
         feeTo = feeTo_;
     }
 
-    function setFeeToSetter(address feeToSetter_) external {
+    function setFeeToSetter(address feeToSetter_) external forbidden {
         feeToSetter = feeToSetter_;
     }
 }
