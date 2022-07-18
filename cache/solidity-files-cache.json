@@ -50,8 +50,8 @@
       }
     },
     "lib/forge-std/src/Script.sol": {
-      "lastModificationDate": 1656697888813,
-      "contentHash": "a24c6682dfdd459618422202d7b97fec",
+      "lastModificationDate": 1658136749737,
+      "contentHash": "cecdf5bf1f7e0552d19c1289e0368010",
       "sourceName": "lib/forge-std/src/Script.sol",
       "solcConfig": {
         "settings": {
@@ -92,8 +92,8 @@
       }
     },
     "lib/forge-std/src/Test.sol": {
-      "lastModificationDate": 1656697888813,
-      "contentHash": "1a62a754b8afb18c5cf88e481f70bd3d",
+      "lastModificationDate": 1658136749737,
+      "contentHash": "bc8b62444227c339153e1198116d79ba",
       "sourceName": "lib/forge-std/src/Test.sol",
       "solcConfig": {
         "settings": {
@@ -145,8 +145,8 @@
       }
     },
     "lib/forge-std/src/Vm.sol": {
-      "lastModificationDate": 1656697888813,
-      "contentHash": "498032edf2491104b61524a4665b0613",
+      "lastModificationDate": 1658136749737,
+      "contentHash": "8eb0bacb50669fafb4a48134fc93ed36",
       "sourceName": "lib/forge-std/src/Vm.sol",
       "solcConfig": {
         "settings": {
@@ -175,7 +175,7 @@
         }
       },
       "imports": [],
-      "versionRequirement": ">=0.6.0",
+      "versionRequirement": ">=0.6.0, <0.9.0",
       "artifacts": {
         "Vm": {
           "0.8.13+commit.abaa5c0e.Linux.gcc": "Vm.sol/Vm.json"
@@ -259,8 +259,8 @@
       }
     },
     "lib/freemoon-frc759/src/FRC759.sol": {
-      "lastModificationDate": 1653942047552,
-      "contentHash": "796e425070ad39076c3d0c3a2163c0ee",
+      "lastModificationDate": 1658137271663,
+      "contentHash": "40b49bbc82571ce004110af08268adec",
       "sourceName": "lib/freemoon-frc759/src/FRC759.sol",
       "solcConfig": {
         "settings": {
@@ -303,8 +303,8 @@
       }
     },
     "lib/freemoon-frc759/src/Slice.sol": {
-      "lastModificationDate": 1653407392066,
-      "contentHash": "8ee096648210f934839aa2241c038000",
+      "lastModificationDate": 1658137271663,
+      "contentHash": "936b1aac12d9d7bdf438ac0225235308",
       "sourceName": "lib/freemoon-frc759/src/Slice.sol",
       "solcConfig": {
         "settings": {
@@ -346,8 +346,8 @@
       }
     },
     "lib/freemoon-frc759/src/interfaces/IFRC759.sol": {
-      "lastModificationDate": 1656789315050,
-      "contentHash": "ef6a21324844ff10d65d4f3d7cff0af7",
+      "lastModificationDate": 1658137271663,
+      "contentHash": "5f596969012eabf13303142dd71d23c1",
       "sourceName": "lib/freemoon-frc759/src/interfaces/IFRC759.sol",
       "solcConfig": {
         "settings": {
@@ -384,8 +384,8 @@
       }
     },
     "lib/freemoon-frc759/src/interfaces/ISlice.sol": {
-      "lastModificationDate": 1653407392066,
-      "contentHash": "8cae462e9705e2d11ba83ceb7d9c751d",
+      "lastModificationDate": 1658137271663,
+      "contentHash": "f9a559626bc31aa557258594aeb4bebc",
       "sourceName": "lib/freemoon-frc759/src/interfaces/ISlice.sol",
       "solcConfig": {
         "settings": {
@@ -422,8 +422,8 @@
       }
     },
     "lib/freemoon-frc759/src/libraries/SafeMath.sol": {
-      "lastModificationDate": 1653407392066,
-      "contentHash": "3ff9087045ab898a0e86d6a4417e9344",
+      "lastModificationDate": 1658137271663,
+      "contentHash": "04c223069c5e5d995435b71be86bd55b",
       "sourceName": "lib/freemoon-frc759/src/libraries/SafeMath.sol",
       "solcConfig": {
         "settings": {
@@ -460,8 +460,8 @@
       }
     },
     "lib/freemoon-frc759/src/utils/Context.sol": {
-      "lastModificationDate": 1653407392066,
-      "contentHash": "9a34af897ef23b231bea20e9028704a3",
+      "lastModificationDate": 1658137271663,
+      "contentHash": "ea0f06dcf590f28cae53e218b81b268e",
       "sourceName": "lib/freemoon-frc759/src/utils/Context.sol",
       "solcConfig": {
         "settings": {
@@ -498,8 +498,8 @@
       }
     },
     "lib/time-wrapped-fusion/src/WFSN.sol": {
-      "lastModificationDate": 1653384306601,
-      "contentHash": "639e85a51fb89ffa247d599286b0b53b",
+      "lastModificationDate": 1658137282015,
+      "contentHash": "b01a068670d0da08f7d6daa3aa59c764",
       "sourceName": "lib/time-wrapped-fusion/src/WFSN.sol",
       "solcConfig": {
         "settings": {
@@ -544,8 +544,8 @@
       }
     },
     "lib/time-wrapped-fusion/src/interfaces/IWFSN.sol": {
-      "lastModificationDate": 1653384306601,
-      "contentHash": "33daa520e8a97bde5101f38f1f98c4ca",
+      "lastModificationDate": 1658137282015,
+      "contentHash": "6f527c7f0eded3c881c26761b29b66f3",
       "sourceName": "lib/time-wrapped-fusion/src/interfaces/IWFSN.sol",
       "solcConfig": {
         "settings": {
@@ -1201,8 +1201,8 @@
       }
     },
     "src/libraries/FreemoonDEXLibrary.sol": {
-      "lastModificationDate": 1658080350033,
-      "contentHash": "1b4431db737d1be69852dfee6aaa6c1f",
+      "lastModificationDate": 1658137373462,
+      "contentHash": "a865323f97814bb51f43bb8952aad356",
       "sourceName": "src/libraries/FreemoonDEXLibrary.sol",
       "solcConfig": {
         "settings": {
