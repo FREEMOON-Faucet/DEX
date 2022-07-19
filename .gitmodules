@@ -1,9 +1,3 @@
 [submodule "lib/forge-std"]
 	path = lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
-[submodule "lib/freemoon-frc759"]
-	path = lib/freemoon-frc759
-	url = https://github.com/FreemoonFaucet/freemoon-frc759
-[submodule "lib/time-wrapped-fusion"]
-	path = lib/time-wrapped-fusion
-	url = https://github.com/FreemoonFaucet/time-wrapped-fusion
