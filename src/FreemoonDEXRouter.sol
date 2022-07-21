@@ -542,4 +542,3 @@ contract FreemoonDEXRouter is IFreemoonDEXRouter {
         if (!success) revert SafeTransferFailed();
     }
 }
-
