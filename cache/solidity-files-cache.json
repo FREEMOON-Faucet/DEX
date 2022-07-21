@@ -33,8 +33,7 @@
                 "abi",
                 "evm.bytecode",
                 "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
+                "evm.methodIdentifiers"
               ]
             }
           },
@@ -76,8 +75,7 @@
                 "abi",
                 "evm.bytecode",
                 "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
+                "evm.methodIdentifiers"
               ]
             }
           },
@@ -115,8 +113,7 @@
                 "abi",
                 "evm.bytecode",
                 "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
+                "evm.methodIdentifiers"
               ]
             }
           },
@@ -154,8 +151,7 @@
                 "abi",
                 "evm.bytecode",
                 "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
+                "evm.methodIdentifiers"
               ]
             }
           },
@@ -193,8 +189,7 @@
                 "abi",
                 "evm.bytecode",
                 "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
+                "evm.methodIdentifiers"
               ]
             }
           },
@@ -238,8 +233,7 @@
                 "abi",
                 "evm.bytecode",
                 "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
+                "evm.methodIdentifiers"
               ]
             }
           },
@@ -283,8 +277,7 @@
                 "abi",
                 "evm.bytecode",
                 "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
+                "evm.methodIdentifiers"
               ]
             }
           },
@@ -328,8 +321,7 @@
                 "abi",
                 "evm.bytecode",
                 "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
+                "evm.methodIdentifiers"
               ]
             }
           },
@@ -406,8 +398,7 @@
                 "abi",
                 "evm.bytecode",
                 "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
+                "evm.methodIdentifiers"
               ]
             }
           },
@@ -463,8 +454,7 @@
                 "abi",
                 "evm.bytecode",
                 "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
+                "evm.methodIdentifiers"
               ]
             }
           },
@@ -492,6 +482,44 @@
         }
       }
     },
+    "src/Terms.sol": {
+      "lastModificationDate": 1658427354787,
+      "contentHash": "fbfda8c7754d1acbbe76630226cf325a",
+      "sourceName": "src/Terms.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "Terms": {
+          "0.8.13+commit.abaa5c0e.Linux.gcc": "Terms.sol/Terms.json"
+        }
+      }
+    },
     "test/FreemoonDEXFactoryTest.t.sol": {
       "lastModificationDate": 1658222462597,
       "contentHash": "179acd14aa72db10ebe7dd3e1e12b23e",
@@ -514,8 +542,7 @@
                 "abi",
                 "evm.bytecode",
                 "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
+                "evm.methodIdentifiers"
               ]
             }
           },
@@ -553,8 +580,7 @@
                 "abi",
                 "evm.bytecode",
                 "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
+                "evm.methodIdentifiers"
               ]
             }
           },
@@ -592,8 +618,7 @@
                 "abi",
                 "evm.bytecode",
                 "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
+                "evm.methodIdentifiers"
               ]
             }
           },
@@ -631,8 +656,7 @@
                 "abi",
                 "evm.bytecode",
                 "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
+                "evm.methodIdentifiers"
               ]
             }
           },
