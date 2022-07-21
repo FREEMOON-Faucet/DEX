@@ -299,6 +299,50 @@
         }
       }
     },
+    "script/TermsScript.s.sol": {
+      "lastModificationDate": 1658427501668,
+      "contentHash": "01861255e94a771178aa74d7c6ad8a0b",
+      "sourceName": "script/TermsScript.s.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/src/Script.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src/console.sol",
+        "lib/forge-std/src/console2.sol",
+        "src/Terms.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "TermsScript": {
+          "0.8.13+commit.abaa5c0e.Linux.gcc": "TermsScript.s.sol/TermsScript.json"
+        }
+      }
+    },
     "src/FreemoonDEXFactory.sol": {
       "lastModificationDate": 1658221295595,
       "contentHash": "b4f0ba28c8571a80e168ad815dd0afbf",
