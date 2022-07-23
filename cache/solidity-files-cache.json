@@ -421,8 +421,8 @@
       }
     },
     "src/FreemoonDEXRouter.sol": {
-      "lastModificationDate": 1658408271804,
-      "contentHash": "23c74be92a6ace6a9516eea2b1a7ba61",
+      "lastModificationDate": 1658593883570,
+      "contentHash": "1368a3a93ed2723fc1e86b47c7d29f1b",
       "sourceName": "src/FreemoonDEXRouter.sol",
       "solcConfig": {
         "settings": {
